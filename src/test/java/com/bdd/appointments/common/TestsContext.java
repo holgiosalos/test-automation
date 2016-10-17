@@ -32,4 +32,9 @@ public class TestsContext
     {
         return properties.getProperty("baseUrl");
     }
+
+    public String getConfiguredDriver()
+    {
+        return properties.getProperty("driver");
+    }
 }

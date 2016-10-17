@@ -20,7 +20,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.assertj.core.api.Condition;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 /**
  * Step definition class
@@ -29,6 +31,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 public class AppointmentSchedulingStepDef
 {
+    private static final String CHROME_WEB_DRIVER = "chrome";
+    private static final String OPERA_WEB_DRIVER = "opera";
+    public static final String FIREFOX_WEB_DRIVER = "firefox";
+
     private TestsContext testsContext = new TestsContext();
     private SimpleRestClient simpleRestClient;
     private WebDriver webDriver;
@@ -38,8 +44,29 @@ public class AppointmentSchedulingStepDef
     @Before
     public void setUp()
     {
-        webDriver = new FirefoxDriver();
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        webDriver = getDriver(testsContext.getConfiguredDriver());
+        webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    }
+
+    private WebDriver getDriver(final String configuredDriver)
+    {
+        WebDriver webDriver;
+        switch (configuredDriver)
+        {
+            case CHROME_WEB_DRIVER:
+                webDriver = new ChromeDriver();
+                break;
+
+            case OPERA_WEB_DRIVER:
+                webDriver = new OperaDriver();
+                break;
+
+            case FIREFOX_WEB_DRIVER:
+            default:
+                webDriver = new FirefoxDriver();
+                break;
+        }
+        return webDriver;
     }
 
     @After
