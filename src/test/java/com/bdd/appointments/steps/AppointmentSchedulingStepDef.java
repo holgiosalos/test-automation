@@ -143,7 +143,7 @@ public class AppointmentSchedulingStepDef
             .contains("No se pudo guardar debido a:");
     }
 
-    @Then("^I expect the Appointment to not be scheduled$")
+    @Then("^I expect the Appointment to be scheduled$")
     public void thenIExpectAppointmentToBeScheduled()
     {
         assertThat(appointmentSchedulingPage.getSaveResultText())
