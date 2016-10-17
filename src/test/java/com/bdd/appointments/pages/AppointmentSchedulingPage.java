@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
+ * Page Object Model for Appointment Scheduling web page
+ *
  * @author Holmes Salazar
  */
 public class AppointmentSchedulingPage

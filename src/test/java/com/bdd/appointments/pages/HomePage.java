@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
+ * Page Object Model for Principal Page
+ *
  * @author Holmes Salazar
  */
 public class HomePage

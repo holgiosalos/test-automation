@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
+ * Class that loads and provides access to the test.properties file
+ *
  * @author Holmes Salazar
  */
 public class TestsContext

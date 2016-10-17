@@ -8,6 +8,9 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 /**
+ * Wrapper class for {@link RestTemplate} class, responsible for make REST calls to register patients and doctors in the
+ * system.
+ *
  * @author Holmes Salazar
  */
 public class SimpleRestClient
@@ -30,6 +33,13 @@ public class SimpleRestClient
         return restTemplate.postForObject(baseUrl + "/addDoctor", getFormattedMap(doctorMap), String.class);
     }
 
+    /**
+     * Encodes the values in the given map and stores it in a MultiValueMap, before to be sent in the REST request.
+     *
+     * @param patientMap the map with the data to be used as part of the REST request
+     *
+     * @return MultiValueMap used to represent an x-www-form-urlencoded request
+     */
     private MultiValueMap<String, String> getFormattedMap(Map<String, String> patientMap)
     {
         MultiValueMap<String, String> formattedMap = new LinkedMultiValueMap<>();

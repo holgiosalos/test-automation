@@ -33,7 +33,7 @@ public class AppointmentSchedulingStepDef
 {
     private static final String CHROME_WEB_DRIVER = "chrome";
     private static final String OPERA_WEB_DRIVER = "opera";
-    public static final String FIREFOX_WEB_DRIVER = "firefox";
+    private static final String FIREFOX_WEB_DRIVER = "firefox";
 
     private TestsContext testsContext = new TestsContext();
     private SimpleRestClient simpleRestClient;
