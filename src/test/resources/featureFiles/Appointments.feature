@@ -39,3 +39,12 @@ Feature: Schedule Medical Appointments
        And I save the Appointment
       Then I expect the Appointment to not be scheduled
        And I expect the Error message to say document of doctor is not registered
+
+    # This scenario will fail, but it ensures that requirement "Se deben usar fechas mayores a la fecha actual." is tested
+    Scenario: Scheduling of a Medical Appointment for current date
+      When I open the Appointment Scheduling option
+       And I choose the Appointment Date to be the current date
+       And I set the Patient document to be "29876453"
+       And I set the Doctor document to be "47895654"
+       And I save the Appointment
+      Then I expect the Appointment to not be scheduled

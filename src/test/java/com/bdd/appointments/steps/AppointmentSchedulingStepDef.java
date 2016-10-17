@@ -13,14 +13,18 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.assertj.core.api.Condition;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
+ * Step definition class
+ *
  * @author Holmes Salazar
  */
 public class AppointmentSchedulingStepDef
@@ -109,6 +113,13 @@ public class AppointmentSchedulingStepDef
     public void whenISetAppointmentDate(final String dateStr)
     {
         appointmentSchedulingPage.setAppointmentDate(dateStr);
+    }
+
+    @When("^I choose the Appointment Date to be the current date$")
+    public void whenISetCurrentDate()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        whenISetAppointmentDate(dateFormat.format(new Date()));
     }
 
     @When("^I set the Patient document to be \"([^\"]*)\"$")
